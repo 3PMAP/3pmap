@@ -16,8 +16,8 @@ setup(
     long_description = readme,
     authors = 'Jelle van Bost, Nathan Guirado & Yochem van Rosmalen',
     author_email = '6283@pierson.nl',
-    github_username = 'yochem'
-    url = 'https://github.com/yochem/RoboticArm',
+    github_username = 'yochem',
+    repository = 'https://github.com/yochem/RoboticArm',
     license = license,
     packages = find_packages(exclude=('tests', 'docs'))
 )
