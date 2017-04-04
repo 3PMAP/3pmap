@@ -1,5 +1,5 @@
 # RoboticArm
-PWS [Yochem](@yochem), [Jelle](@jelle641) en [Nathan](@NathGui)
+Profielwerkstuk [Yochem](@yochem), [Jelle](@jelle641) en [Nathan](@NathGui)
 
 
 ## license
