@@ -130,6 +130,11 @@ ENV/
 # Rope project settings
 .ropeproject
 
+# own Python ignores
+bin/
+include/
+pip-selfcheck.json
+
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
