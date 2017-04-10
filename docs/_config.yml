@@ -2,3 +2,13 @@ theme: jekyll-theme-cayman
 
 title: Robotische prothese arm
 description: Jelle van Bost, Nathan Guirado en Yochem van Rosmalen
+# baseurl: "/roboticarm"
+
+
+jelle:
+  name: jelle641
+  url: https://github.com/jelle641
+
+nathan:
+  name: NathGui
+  url: https://github.com/NathGui
