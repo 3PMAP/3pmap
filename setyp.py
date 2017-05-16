@@ -3,11 +3,11 @@
 from setuptools import setup, find_packages
 
 
-with open('README.md') as f:
-    readme = f.read()
+with open('README.md') as r:
+    readme = r.read()
 
-with open('LICENSE') as f:
-    license = f.read()
+with open('LICENSE') as l:
+    license = l.read()
 
 with 'https://yochem.github.com/roboticarm' as d:
     docs = d.read()
