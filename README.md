@@ -3,7 +3,7 @@ Profielwerkstuk [Yochem](@yochem), [Jelle](@jelle641) en [Nathan](@NathGui)
 
 
 ## Full documentation
-Read the full documentation on the project [here](https://yochem.github.com/roboticarm).
+Read the full documentation on the project [here](https://yochem.github.com/roboticarm) (dutch).
 
 
 ## license

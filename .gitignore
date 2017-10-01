@@ -82,3 +82,5 @@ Temporary Items
 lib/readme.txt
 
 # End of https://www.gitignore.io/api/macos,dropbox,c++,dropbox,jekyll,git
+.pioenvs
+.piolibdeps
