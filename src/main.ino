@@ -1,50 +1,85 @@
+/////////////
+// CONTENT //
+/////////////
+// 1. libraries
+// 2. variables
+// 3. initializes
+// 4. setup function
+// 5. loop function
+// 6. callable functions
 
-int switchPin = 2;
+///////////////
+// LIBRARIES //
+///////////////
+#include <Stepper.h>
+
+
+///////////////
+// VARIABLES //
+///////////////
+#define motorSteps 64
 
 // Setup for motorpins
-const int motor1 = 9;
-const int motor2 = 10;
-const int motor3 = 11;
-const int motor4 = 12;
-const int motor5 = 13;
+const int motor1 = 8;
+const int motor2 = 9;
+const int motor3 = 10;
+const int motor4 = 11;
 
+// other variables
+// switch button
+int switchPin = 2;
 int switchState = 0;
+// ledPin
+int ledPin = 13;
 
-// setup code
+
+////////////////
+// INITIALIZE //
+////////////////
+// initialize Stepper library
+Stepper stepper1(motorSteps, motor1, motor2);
+
+
+///////////
+// SETUP //
+///////////
 void setup() {
-  pinMode(motor1, OUTPUT);
-  pinMode(motor2, OUTPUT);
-  pinMode(motor3, OUTPUT);
-  pinMode(motor4, OUTPUT);
-  pinMode(motor5, OUTPUT);
+  // start Serial
+  Serial.begin(9600);
 
+  // let me know it's working by blinking led
+  blink(4);
+
+  // setting up switchPin
   pinMode(switchPin, INPUT);
 }
 
 
-
-
-// call functions
-void stopAllMotors() {
-  digitalWrite(motor1, LOW);
-  digitalWrite(motor2, LOW);
-  digitalWrite(motor3, LOW);
-  digitalWrite(motor4, LOW);
-  digitalWrite(motor5, LOW);
-}
-
-void startAllMotors() {
-  digitalWrite(motor1, HIGH);
-  digitalWrite(motor2, HIGH);
-  digitalWrite(motor3, HIGH);
-  digitalWrite(motor4, HIGH);
-  digitalWrite(motor5, HIGH);
-}
-
-// main code
+//////////
+// LOOP //
+//////////
 void loop() {
   switchState = digitalRead(switchPin);
 
-  digitalWrite(motor1, switchState);
-  delay(1000);
+  Serial.println("100 forward");
+  stepper1.step(100);
+  delay(100);
+
+  Serial.println("100 backward");
+  stepper1.step(-100);
+  delay(100);
+}
+
+
+//////////////
+// CALLABLE //
+//////////////
+void blink(int howManyTimes) {
+  int i;
+  for (i=0; i< howManyTimes; i++) {
+    digitalWrite(ledPin, HIGH);
+    delay(200);
+    digitalWrite(ledPin, LOW);
+    delay(200);
+  }
 }
