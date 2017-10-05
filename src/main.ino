@@ -26,9 +26,11 @@ const int motor3 = 10;
 const int motor4 = 11;
 
 // other variables
-// switch button
+
+// On-Off button
 int switchPin = 2;
 int switchState = 0;
+
 // ledPin
 int ledPin = 13;
 
@@ -50,7 +52,7 @@ void setup() {
   // let me know it's working by blinking led
   blink(4);
 
-  // setting up switchPin
+  // setting up on-off button
   pinMode(switchPin, INPUT);
 }
 
