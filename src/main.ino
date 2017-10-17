@@ -13,63 +13,49 @@
 ///////////////
 #include <Stepper.h>
 
-
-///////////////
-// VARIABLES //
-///////////////
-#define motorSteps 64
-
-// Setup for motorpins
-const int motor1 = 8;
-const int motor2 = 9;
-const int motor3 = 10;
-const int motor4 = 11;
-
-// other variables
-
-// On-Off button
-int switchPin = 2;
-int switchState = 0;
-
-// ledPin
-int ledPin = 13;
+/////////////
+// DEFINES //
+/////////////
+#define motorSteps 200  // not sure what the exact number is, but this works
+#define motor1Pin0 8    // define pins for steppermotor 1
+#define motor1Pin1 9
+#define motor1Pin2 10
+#define motor1Pin3 11
+#define ledPin 13       // define test LED
 
 
-////////////////
-// INITIALIZE //
-////////////////
-// initialize Stepper library
-Stepper stepper1(motorSteps, motor1, motor2);
+////////////////////////
+// STEPPER INITIALIZE //
+////////////////////////
+Stepper Stepper1(motorSteps, motor1Pin0, motor1Pin1, motor1Pin2, motor1Pin3);
 
 
 ///////////
 // SETUP //
 ///////////
 void setup() {
-  // start Serial
+  // serial port
   Serial.begin(9600);
 
-  // let me know it's working by blinking led
-  blink(4);
+  // LED pin and blink 3 times
+  pinMode(ledPin, OUTPUT);
+  blink(3);
 
-  // setting up on-off button
-  pinMode(switchPin, INPUT);
+  // set stepper speed to 60 RPM:
+  Stepper1.setSpeed(60);
 }
 
 
-//////////
-// LOOP //
-//////////
+///////////////////
+// LOOP FUNCTION //
+///////////////////
 void loop() {
-  switchState = digitalRead(switchPin);
+  // Step forward 100 steps:
+  Serial.println("Forward");
+  Stepper1.step(500);
+  delay(500);
 
-  Serial.println("100 forward");
-  stepper1.step(100);
-  delay(100);
-
-  Serial.println("100 backward");
-  stepper1.step(-100);
-  delay(100);
+  fullBendFinger(1)
 }
 
 
@@ -78,10 +64,24 @@ void loop() {
 //////////////
 void blink(int howManyTimes) {
   int i;
-  for (i=0; i< howManyTimes; i++) {
+  for (i = 0; i < howManyTimes; i++) {
     digitalWrite(ledPin, HIGH);
     delay(200);
     digitalWrite(ledPin, LOW);
     delay(200);
+  }
+}
+
+void fullBendFinger(finger) {
+  switch (finger) {
+    case 1:
+      Stepper1.step(500);
+      break;
+    case 2:
+      break;
+    case 3:
+      break;
+    case 4:
+      break;
   }
 }
