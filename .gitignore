@@ -1,86 +1,14 @@
-# Created by https://www.gitignore.io/api/macos,dropbox,c++,dropbox,jekyll,git
-
-### C++ ###
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
-
-### Dropbox ###
-# Dropbox settings and caches
 .dropbox
 .dropbox.attr
 .dropbox.cache
 
-### Git ###
 *.orig
-
-### Jekyll ###
-_site/
-.sass-cache/
-.jekyll-metadata
-
-### macOS ###
 *.DS_Store
-.AppleDouble
-.LSOverride
 
-# Icon must end with two \r
-Icon
-
-# Thumbnails
-._*
-
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
-
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
-
-# platformIO IDE
 .clang_complete
 .gcc-flags.json
 .pioenvs/
 lib/readme.txt
-
-# End of https://www.gitignore.io/api/macos,dropbox,c++,dropbox,jekyll,git
 .pioenvs
 .piolibdeps
+.travis.yml
