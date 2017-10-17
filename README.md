@@ -11,4 +11,4 @@ You can read about the schematics and customparts folders [here](/assets/schemat
 
 
 ## license
-Uses the [MIT license](https://www.github.com/yochem/roboticarm/blob/master/LICENSE)
+Provided under the [MIT license](https://www.github.com/yochem/roboticarm/blob/master/LICENSE)
