@@ -55,7 +55,6 @@ void loop() {
   Stepper1.step(500);
   delay(500);
 
-  fullBendFinger(1)
 }
 
 
@@ -72,7 +71,7 @@ void blink(int howManyTimes) {
   }
 }
 
-void fullBendFinger(finger) {
+void fullBendFinger(int finger) {
   switch (finger) {
     case 1:
       Stepper1.step(500);
