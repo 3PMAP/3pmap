@@ -34,15 +34,15 @@ Stepper Stepper1(motorSteps, motor1Pin0, motor1Pin1, motor1Pin2, motor1Pin3);
 // SETUP //
 ///////////
 void setup() {
-  // serial port
+  // serial port for bug fixing
   Serial.begin(9600);
 
   // LED pin and blink 3 times
   pinMode(ledPin, OUTPUT);
   blink(3);
 
-  // set stepper speed to 60 RPM:
-  Stepper1.setSpeed(60);
+  // max speed is around 120
+  Stepper1.setSpeed(100);
 }
 
 
@@ -51,10 +51,7 @@ void setup() {
 ///////////////////
 void loop() {
   // Step forward 100 steps:
-  Serial.println("Forward");
   Stepper1.step(500);
-  delay(500);
-
 }
 
 
