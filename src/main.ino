@@ -16,42 +16,42 @@
 /////////////
 // DEFINES //
 /////////////
-#define motorSteps 200  // not sure what the exact number is, but this works
-#define motor1Pin0 8    // define pins for steppermotor 1
-#define motor1Pin1 9
-#define motor1Pin2 10
-#define motor1Pin3 11
-#define ledPin 13       // define test LED
+int step_mode = 8;
+#define motorSteps 2048 * (step_mode/4)   // not sure what the exact number is, but this works
 
+#define ledPin 13       // define test LED
 
 ////////////////////////
 // STEPPER INITIALIZE //
 ////////////////////////
-Stepper Stepper1(motorSteps, motor1Pin0, motor1Pin1, motor1Pin2, motor1Pin3);
+Stepper Stepper1(motorSteps, 2, 3, 4, 5, step_mode);
 
 
 ///////////
 // SETUP //
 ///////////
 void setup() {
-  // serial port for bug fixing
+  // serial port
   Serial.begin(9600);
 
   // LED pin and blink 3 times
   pinMode(ledPin, OUTPUT);
   blink(3);
 
-  // max speed is around 120
+  // max: 160
   Stepper1.setSpeed(100);
 }
-
 
 ///////////////////
 // LOOP FUNCTION //
 ///////////////////
 void loop() {
   // Step forward 100 steps:
-  Stepper1.step(500);
+  Serial.println("Forward");
+  Stepper1.step(motorSteps);
+  delay(100);
+  Serial.println("Backward");
+  Stepper1.step(-motorSteps);
 }
 
 
