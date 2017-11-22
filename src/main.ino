@@ -16,15 +16,18 @@
 /////////////
 // DEFINES //
 /////////////
-int step_mode = 8;
-#define motorSteps 2048 * (step_mode/4)   // not sure what the exact number is, but this works
+// step_mode let us use halfsteps (but we prolly don't need that)
+int step_mode = 8; // 4 = full, 8 = half
+
+#define fullRev 2048 * (step_mode/4)
 
 #define ledPin 13       // define test LED
 
 ////////////////////////
 // STEPPER INITIALIZE //
 ////////////////////////
-Stepper Stepper1(motorSteps, 2, 3, 4, 5, step_mode);
+// the four integers are the pins the motor is connected to.
+Stepper Stepper1(fullRev, 2, 3, 4, 5, step_mode);
 
 
 ///////////
@@ -38,7 +41,7 @@ void setup() {
   pinMode(ledPin, OUTPUT);
   blink(3);
 
-  // max: 160
+  // max is around 160
   Stepper1.setSpeed(100);
 }
 
@@ -48,10 +51,10 @@ void setup() {
 void loop() {
   // Step forward 100 steps:
   Serial.println("Forward");
-  Stepper1.step(motorSteps);
+  Stepper1.step(fullRev);
   delay(100);
   Serial.println("Backward");
-  Stepper1.step(-motorSteps);
+  Stepper1.step(-fullRev);
 }
 
 
