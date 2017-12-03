@@ -19,9 +19,11 @@
 // step_mode let us use halfsteps (but we prolly don't need that)
 int step_mode = 8; // 4 = full, 8 = half
 
+// number of steps it takes to turn 360º
 #define fullRev 2048 * (step_mode/4)
 
-#define ledPin 13       // define test LED
+// setup LED at pin 13
+#define ledPin 13
 
 ////////////////////////
 // STEPPER INITIALIZE //
@@ -55,6 +57,8 @@ void loop() {
   delay(100);
   Serial.println("Backward");
   Stepper1.step(-fullRev);
+
+  partRev(1, 1.0);
 }
 
 
@@ -71,16 +75,29 @@ void blink(int howManyTimes) {
   }
 }
 
-void fullBendFinger(int finger) {
-  switch (finger) {
-    case 1:
-      Stepper1.step(500);
-      break;
-    case 2:
-      break;
-    case 3:
-      break;
-    case 4:
-      break;
+void partRev(int finger, float frac) {
+  if (frac > 0) {
+    switch (finger) {
+      case 1:
+        Stepper1.step(fullRev);
+        break;
+      case 2:
+        Stepper1.step(fullRev);
+        break;
+      case 3:
+        Stepper1.step(fullRev);
+        break;
+      case 4:
+        Stepper1.step(fullRev);
+        break;
+      case 5:
+        Stepper1.step(fullRev);
+        break;
+    }
+  }
+  else {
+    Serial.println("Fraction of rotation can't be negative or 0.");
+    float frac = 1.0;
+    partRev(finger, frac);
   }
 }
