@@ -16,20 +16,19 @@
 /////////////
 // DEFINES //
 /////////////
-// step_mode let us use halfsteps (but we prolly don't need that)
+// step_mode let us use halfsteps (but we probably don't need that)
 int step_mode = 8; // 4 = full, 8 = half
 
-// number of steps it takes to turn 360º
+// number of steps it takes to turn motor 360º
 #define fullRev 2048 * (step_mode/4)
-
-// setup LED at pin 13
-#define ledPin 13
 
 ////////////////////////
 // STEPPER INITIALIZE //
 ////////////////////////
 // the four integers are the pins the motor is connected to.
-Stepper Stepper1(fullRev, 2, 3, 4, 5, step_mode);
+Stepper Digit1(fullRev, 2, 3, 4, 5, step_mode);
+Stepper Digit2(fullRev, 6, 7, 8, 9, step_mode);
+Stepper Digit3(fullRev, 10, 11, 12, 13, step_mode);
 
 
 ///////////
@@ -39,26 +38,30 @@ void setup() {
   // serial port
   Serial.begin(9600);
 
-  // LED pin and blink 3 times
-  pinMode(ledPin, OUTPUT);
+  // Built in led blinks 3 times
+  pinMode(LED_BUILTIN, OUTPUT);
   blink(3);
 
-  // max is around 160
-  Stepper1.setSpeed(100);
+  // max is around 160 RPM
+  Digit1.setSpeed(100);
+  Digit2.setSpeed(100);
+  Digit3.setSpeed(100);
 }
 
 ///////////////////
 // LOOP FUNCTION //
 ///////////////////
 void loop() {
-  // Step forward 100 steps:
-  Serial.println("Forward");
-  Stepper1.step(fullRev);
+  Digit1.step(fullRev);
   delay(100);
-  Serial.println("Backward");
-  Stepper1.step(-fullRev);
+  Digit2.step(fullRev);
+  delay(100);
+  Digit3.step(fullRev);
+  delay(100);
 
-  partRev(1, 1.0);
+  turnDigit(1, 0.25);
+  turnDigit(2, 0.5);
+  turnDigit(3, 0.75);
 }
 
 
@@ -68,36 +71,41 @@ void loop() {
 void blink(int howManyTimes) {
   int i;
   for (i = 0; i < howManyTimes; i++) {
-    digitalWrite(ledPin, HIGH);
+    digitalWrite(LED_BUILTIN, HIGH);
     delay(200);
-    digitalWrite(ledPin, LOW);
+    digitalWrite(LED_BUILTIN, LOW);
     delay(200);
   }
 }
 
-void partRev(int finger, float frac) {
+void turnDigit(int digNum, float frac) {
   if (frac > 0) {
-    switch (finger) {
+    int steps = fullRev * frac;
+
+    switch (digNum) {
       case 1:
-        Stepper1.step(fullRev);
+        Digit1.step(steps);
         break;
       case 2:
-        Stepper1.step(fullRev);
-        break;
+        Digit2.step(steps);
       case 3:
-        Stepper1.step(fullRev);
-        break;
-      case 4:
-        Stepper1.step(fullRev);
-        break;
-      case 5:
-        Stepper1.step(fullRev);
-        break;
+        Digit3.step(steps);
     }
   }
   else {
     Serial.println("Fraction of rotation can't be negative or 0.");
     float frac = 1.0;
-    partRev(finger, frac);
+    turnDigit(digNum, frac);
   }
+}
+
+void thumbsUp() {
+  turnDigit(1, 5);
+  turnDigit(2, -5);
+  turnDigit(3, -5);
+}
+
+void pinch() {
+  turnDigit(1, 5);
+  turnDigit(2, 5);
 }
