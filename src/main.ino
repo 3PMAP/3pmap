@@ -20,9 +20,10 @@ void setup() {
 
 // LOOP //
 void loop() {
-  m1.write(90);
-  int val = m1.read();
-  Serial.println(val);
+  m1.write(0);
+  delay(500);
+  m1.write(180);
+  delay(500);
 }
 
 
