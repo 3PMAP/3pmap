@@ -29,21 +29,39 @@ void loop() {
   switch (emg) {
     case 70:
       pinch();
+      break;
     case 81:
       thumbsUp();
+      break;
     case 60:
       middleFinger();
+      break;
+    default:
+      allfingers(0);
+      break;
   }
 }
 
 
 // FUNCTIONS //
+void allfingers(int pos) {
+  // get all fingers in same position.
+  // 0 for open hand, 180 for fully closed hand
+  m1.write(pos);
+  m2.write(pos);
+  m3.write(pos);
+  m4.write(pos);
+  m5.write(pos);
+  delay(100);
+}
+
 void pinch() {
   m1.write(90);
   m2.write(90);
   m3.write(180);
   m4.write(180);
   m5.write(180);
+  delay(100);
 }
 
 void thumbsUp() {
@@ -52,6 +70,7 @@ void thumbsUp() {
   m3.write(180);
   m4.write(180);
   m5.write(180);
+  delay(100);
 }
 
 void middleFinger() {
@@ -60,4 +79,5 @@ void middleFinger() {
   m3.write(0);
   m4.write(180);
   m5.write(180);
+  delay(100);
 }
