@@ -19,6 +19,9 @@ void setup() {
 
   // Set EMG pin to input
   pinMode(A0, INPUT);
+
+  // Button for Rock, Paper and Scissors
+  pinMode(7, INPUT);
 }
 
 
@@ -37,14 +40,30 @@ void loop() {
       middleFinger();
       break;
     default:
-      allfingers(0);
+      allFingers(0);
       break;
+  }
+
+  int buttonState = 0;
+  if (buttonState == HIGH) {
+    int gstr = random(3);
+
+    if (gstr = 0) {
+      rock();
+    } else if (gstr = 1) {
+      paper();
+    } else {
+      scissors();
+    }
+
+    // reset buttonState
+    buttonState = 0;
   }
 }
 
 
 // FUNCTIONS //
-void allfingers(int pos) {
+void allFingers(int pos) {
   // get all fingers in same position.
   // 0 for open hand, 180 for fully closed hand
   m1.write(pos);
@@ -80,4 +99,20 @@ void middleFinger() {
   m4.write(180);
   m5.write(180);
   delay(100);
+}
+
+void rock() {
+  allFingers(180);
+}
+
+void paper() {
+  allFingers(0);
+}
+
+void scissors() {
+  m1.write(0);
+  m2.write(180);
+  m3.write(180);
+  m4.write(0);
+  m5.write(0);
 }
