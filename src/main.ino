@@ -10,34 +10,34 @@ Servo m5;
 
 // SETUP //
 void setup() {
+  // Attach motor variables to digital pin
   m1.attach(2);
   m2.attach(3);
   m3.attach(4);
   m4.attach(5);
   m5.attach(6);
+
+  // Set EMG pin to input
+  pinMode(A0, INPUT);
 }
 
 
 // LOOP //
 void loop() {
-  m1.write(0);
-  delay(500);
-  m1.write(180);
-  delay(500);
+  int emg = analogRead(A0);
+
+  switch (emg) {
+    case 70:
+      pinch();
+    case 81:
+      thumbsUp();
+    case 60:
+      middleFinger();
+  }
 }
 
 
 // FUNCTIONS //
-void blink(int howManyTimes) {
-  int i;
-  for (i = 0; i < howManyTimes; i++) {
-    digitalWrite(LED_BUILTIN, HIGH);
-    delay(200);
-    digitalWrite(LED_BUILTIN, LOW);
-    delay(200);
-  }
-}
-
 void pinch() {
   m1.write(90);
   m2.write(90);
@@ -50,6 +50,14 @@ void thumbsUp() {
   m1.write(0);
   m2.write(180);
   m3.write(180);
+  m4.write(180);
+  m5.write(180);
+}
+
+void middleFinger() {
+  m1.write(180);
+  m2.write(180);
+  m3.write(0);
   m4.write(180);
   m5.write(180);
 }
