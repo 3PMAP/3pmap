@@ -37,14 +37,14 @@ void loop() {
       middleFinger();
       break;
     default:
-      allfingers(0);
+      allFingers(0);
       break;
   }
 }
 
 
 // FUNCTIONS //
-void allfingers(int pos) {
+void allFingers(int pos) {
   // get all fingers in same position.
   // 0 for open hand, 180 for fully closed hand
   m1.write(pos);
