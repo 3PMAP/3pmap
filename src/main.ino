@@ -16,9 +16,6 @@ void setup() {
   m3.attach(4);
   m4.attach(5);
   m5.attach(6);
-
-  // Set EMG pin to input
-  pinMode(A0, INPUT);
 }
 
 
@@ -26,33 +23,24 @@ void setup() {
 void loop() {
   int emg = analogRead(A0);
 
-  switch (emg) {
-    case 70:
-      pinch();
-      break;
-    case 81:
-      thumbsUp();
-      break;
-    case 60:
-      middleFinger();
-      break;
-    default:
-      allFingers(0);
-      break;
+  if (emg < 200) {
+    allFingers(700);
+    } else if (emg > 200) {
+    allFingers(2300);
   }
-}
+  delay(1000);
 
 
 // FUNCTIONS //
 void allFingers(int pos) {
   // get all fingers in same position.
   // 0 for open hand, 180 for fully closed hand
-  m1.write(pos);
-  m2.write(pos);
-  m3.write(pos);
-  m4.write(pos);
-  m5.write(pos);
-  delay(100);
+  m1.writeMicroseconds(pos);
+  m2.writeMicroseconds(pos);
+  m3.writeMicroseconds(pos);
+  m4.writeMicroseconds(pos);
+  m5.writeMicroseconds(pos);
+  delay(1000);
 }
 
 void pinch() {
