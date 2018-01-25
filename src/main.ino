@@ -16,20 +16,29 @@ void setup() {
   m3.attach(4);
   m4.attach(5);
   m5.attach(6);
+
+  Serial.begin(9600);
 }
 
 
 // LOOP //
 void loop() {
-  int emg = analogRead(A0);
+  int emg = analogRead(A4);
 
-  if (emg < 200) {
+  Serial.println(emg);
+
+  if (emg < 50) {
     allFingers(700);
-    } else if (emg > 200) {
+    Serial.println("open");
+  } else if (emg > 50 && emg < 200) {
+    pinch();
+    Serial.println("pinch");
+  } else if (emg > 700) {
     allFingers(2300);
+    Serial.println("fisten");
   }
-  delay(1000);
-
+  delay(100);
+}
 
 // FUNCTIONS //
 void allFingers(int pos) {
@@ -44,11 +53,11 @@ void allFingers(int pos) {
 }
 
 void pinch() {
-  m1.write(90);
-  m2.write(90);
-  m3.write(180);
-  m4.write(180);
-  m5.write(180);
+  m1.writeMicroseconds(2300);
+  m2.writeMicroseconds(2300);
+  m3.writeMicroseconds(700);
+  m4.writeMicroseconds(700);
+  m5.writeMicroseconds(700);
   delay(100);
 }
 
