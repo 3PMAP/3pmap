@@ -21,7 +21,7 @@ void setup() {
 
 // LOOP //
 void loop() {
-  int emg = analogRead(A0);
+  int emg = analogRead(A4);
 
   if (emg < 200) {
     allFingers(700);
@@ -29,7 +29,7 @@ void loop() {
     allFingers(2300);
   }
   delay(1000);
-
+}
 
 // FUNCTIONS //
 void allFingers(int pos) {
