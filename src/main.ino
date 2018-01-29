@@ -24,11 +24,7 @@ void setup() {
 // LOOP //
 void loop() {
   int emg = analogRead(A4);
-<<<<<<< HEAD
-=======
-
   Serial.println(emg);
->>>>>>> a500db2a13f320f1a39a2e51abe52e8e8191d8f9
 
   if (emg < 50) {
     allFingers(700);
@@ -40,11 +36,8 @@ void loop() {
     allFingers(2300);
     Serial.println("fisten");
   }
-<<<<<<< HEAD
+  
   delay(1000);
-=======
-  delay(100);
->>>>>>> a500db2a13f320f1a39a2e51abe52e8e8191d8f9
 }
 
 // FUNCTIONS //
