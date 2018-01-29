@@ -24,17 +24,13 @@ void setup() {
 // LOOP //
 void loop() {
   int emg = analogRead(A4);
-  Serial.println(emg);
 
   if (emg < 50) {
     allFingers(700);
-    Serial.println("open");
   } else if (emg > 50 && emg < 200) {
     pinch();
-    Serial.println("pinch");
   } else if (emg > 700) {
     allFingers(2300);
-    Serial.println("fisten");
   }
   
   delay(1000);
