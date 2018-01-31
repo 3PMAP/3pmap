@@ -7,6 +7,11 @@ Servo m3;
 Servo m4;
 Servo m5;
 
+//Setup for lock position
+const unsigned long lLockOut = 2000L;
+unsigned long lStartTime = 0L;
+bool bStartLockTimer = false;
+bool bActiveLock = false;
 
 // SETUP //
 void setup() {
@@ -16,6 +21,7 @@ void setup() {
   m3.attach(4);
   m4.attach(5);
   m5.attach(6);
+  delay(5000)
 
   Serial.begin(9600);
 }
@@ -32,8 +38,38 @@ void loop() {
   } else if (emg > 700) {
     allFingers(2300);
   }
-  
+
+  if (emg > 700) {
+    if(!bStartLockTimer)
+    {
+      lStartTime = millis();
+      bStartLockTimer = true;
+    }
+  } else {
+    lStartTime = 0L;
+    bStartLockTimer = false;
+  }
+
+  if(bStartLockTimer && millis()-lStartTime >= lLockOut) {
+    bActiveLock = !bActiveLock;
+    lStartTime = 0L;
+    bStartLockTimer = false;
+
+    if(bActiveLock) {
+      allFingers(2300);
+    } else {
+      allFingers(700);
+    }
+
   delay(1000);
+  }
+
+  if(bActiveLock)
+    allFingers(2300);
+  else
+    allFingers(700);
+
+  delay(100);
 }
 
 // FUNCTIONS //
@@ -54,23 +90,31 @@ void pinch() {
   m3.writeMicroseconds(700);
   m4.writeMicroseconds(700);
   m5.writeMicroseconds(700);
-  delay(100);
+  delay(1000);
 }
 
 void thumbsUp() {
-  m1.write(0);
-  m2.write(180);
-  m3.write(180);
-  m4.write(180);
-  m5.write(180);
-  delay(100);
+  m1.writeMicroseconds(700);
+  m2.writeMicroseconds(2300);
+  m3.writeMicroseconds(2300);
+  m4.writeMicroseconds(2300);
+  m5.writeMicroseconds(2300);
+  delay(1000);
 }
 
 void middleFinger() {
-  m1.write(180);
-  m2.write(180);
-  m3.write(0);
-  m4.write(180);
-  m5.write(180);
-  delay(100);
+  m1.writeMicroseconds(2300);
+  m2.writeMicroseconds(2300);
+  m3.writeMicroseconds(700);
+  m4.writeMicroseconds(2300);
+  m5.writeMicroseconds(2300);
+  delay(1000);
+}
+
+void rock() {
+  m1.writeMicroseconds(700)
+  m2.writeMicroseconds(700)
+  m3.writeMicroseconds(2300)
+  m4.writeMicroseconds(2300)
+  m5.writeMicroseconds(700)
 }
