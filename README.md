@@ -14,6 +14,7 @@ The designs are open-source available, too! You can find them in another [reposi
 
 ## Paper
 The subject is also precisely described in a paper. This paper is available to the public on Google Drive [here](https://drive.google.com/file/d/1Y8NJbbq5t4uDQCavqlGbQolRZrRw3rOT/view?usp=sharing) (dutch).
+We are currently working on translating our documentation in English, so stay tuned!
 
 ## License
 Provided under the [MIT license](https://www.github.com/yochem/3pmap/blob/master/LICENSE).
