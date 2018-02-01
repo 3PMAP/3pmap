@@ -1,14 +1,16 @@
-# RoboticArm
-Profielwerkstuk [Yochem](@yochem), [Jelle](@jelle641) en [Nathan](@NathGui)
+## 3d Printed Myoelectric Arm Prosthetic
+School research project at [Ds. Pierson College](@Piersoncollege).
 
-
-## Full documentation
-Read the full documentation on the project [here](https://github.com/3pmap/3pmap/assets/paper/prothesehand.pdf) (dutch).
-
+By [Yochem van Rosmalen](@yochem), [Jelle van Bost](@jelle641) and [Nathan Guirado](@NathGui).
 
 ## Schematics
-You can read about the schematics and customparts folders [here](/assets/schematics/schematics.md)
+The schematics for the project can be found at the folder [`ee`](/ee/).
 
+## Designs
+The designs are open-source available, too! You can find them in another [repository](https://github.com/3pmap/3dprints) on this organisation page.
 
-## license
-Provided under the [MIT license](https://www.github.com/yochem/3pmap/blob/master/LICENSE)
+## Paper
+The subject is also precisely described in a paper. This paper is available to the public on Google Drive [here](https://drive.google.com/file/d/1Y8NJbbq5t4uDQCavqlGbQolRZrRw3rOT/view?usp=sharing) (dutch).
+
+## License
+Provided under the [MIT license](https://www.github.com/yochem/3pmap/blob/master/LICENSE).
