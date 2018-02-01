@@ -7,7 +7,7 @@ School research project at [Ds. Pierson College](@Piersoncollege).
 By [Yochem van Rosmalen](@yochem), [Jelle van Bost](@jelle641) and [Nathan Guirado](@NathGui).
 
 ## Schematics
-The schematics for the project can be found at the folder [`ee`](/ee/).
+The schematics for the project can be found at the folder [`Schematics`](/Schematics/).
 
 ## Designs
 The designs are open-source available, too! You can find them in another [repository](https://github.com/3pmap/3dprints) on this organisation page.
