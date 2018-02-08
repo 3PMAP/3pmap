@@ -17,4 +17,4 @@ The subject is also precisely described in a paper. This paper is available to t
 We are currently working on translating our documentation in English, so stay tuned!
 
 ## License
-Provided under the [MIT license](https://www.github.com/yochem/3pmap/blob/master/LICENSE).
+Provided under the [MIT license](https://www.github.com/3PMAP/3pmap/blob/master/LICENSE).
