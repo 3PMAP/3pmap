@@ -2,7 +2,7 @@
 
 ![example movement](https://media.giphy.com/media/3o6nUYP9ADbv2gA6RO/giphy.gif)
 
-School research project at [Ds. Pierson College](@Piersoncollege).
+Final school research project at [Ds. Pierson College](@Piersoncollege).
 
 By [Yochem van Rosmalen](@yochem), [Jelle van Bost](@jelle641) and [Nathan Guirado](@NathGui).
 
