@@ -1,6 +1,8 @@
 ## 3d Printed Myoelectric Arm Prosthetic
 
-![example movement](https://media.giphy.com/media/3o6nUYP9ADbv2gA6RO/giphy.gif)
+<div align="center">
+  <img src="https://media.giphy.com/media/3o6nUYP9ADbv2gA6RO/giphy.gif" />
+</div>
 
 Final school research project at [Ds. Pierson College](@Piersoncollege).
 
