@@ -5,7 +5,7 @@
 </div>
 
 
-Final school research project at [Ds. Pierson College](@Piersoncollege).
+Final school research project at [Ds. Pierson College](https://github.com/Piersoncollege).
 
 By [Yochem van Rosmalen](@yochem), [Jelle van Bost](@jelle641) and [Nathan Guirado](@NathGui).
 
