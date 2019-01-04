@@ -10,14 +10,13 @@ Final school research project at [Ds. Pierson College](https://github.com/Pierso
 By [Yochem van Rosmalen](@yochem), [Jelle van Bost](@jelle641) and [Nathan Guirado](@NathGui).
 
 ## Schematics
-The schematics for the project can be found at the folder [`Schematics`](/Schematics/).
+The electronic schemes for the project can be found at the folder [`Schematics`](/Schematics/). This folder includes the overall schematics for the project aswell as the self designed and `PCB`.
 
-## Designs
+## 3D-Designs
 The designs are open-source available, too! You can find them in another [repository](https://github.com/3pmap/3dprints) on this organisation page.
 
 ## Paper
 The subject is also precisely described in a paper. This paper is available to the public on Github [here](https://github.com/3PMAP/profielwerkstuk/blob/master/prothesehand.pdf) (dutch).
-We are currently working on translating our documentation in English, so stay tuned!
 
 ## License
 Provided under the [MIT license](https://www.github.com/3PMAP/3pmap/blob/master/LICENSE).
